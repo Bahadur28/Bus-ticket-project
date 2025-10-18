@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking - Bangladesh</title>
+    <link rel="stylesheet" href="ticket.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-bus"></i> SB Bus tickets</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#booking" class="nav-link">Ticket booking</a></li>
+                <li><a href="#routes" class="nav-link">Routes</a></li>
+                <li><a href="#companies" class="nav-link">Bus company</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#login" class="nav-link login-btn">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Book bus tickets easily</h1>
+            <p>Book bus tickets online to any destination in Bangladesh.</p>
+            <button class="cta-button" onclick="scrollToBooking()">Book tickets</button>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <h2 class="section-title">Ticket booking</h2>
+            <div class="booking-form">
+                <div class="form-group">
+                    <label for="from"><i class="fas fa-map-marker-alt"></i> From where</label>
+                    <select id="from" class="form-control">
+                        <option value="">Select a location</option>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="chittagong">Chittagoag</option>
+                        <option value="sylhet">Sylhet</option>
+                        <option value="khulna">Khulna</option>
+                        <option value="rajshahi">Rajshahi</option>
+                        <option value="barisal">Barisal</option>
+                        <option value="rangpur">Rangpur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="to"><i class="fas fa-map-marker-alt"></i> Where to go</label>
+                    <select id="to" class="form-control">
+                        <option value="">Select a location</option>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="chittagong">Chittagoag</option>
+                        <option value="sylhet">Sylhet</option>
+                        <option value="khulna">Khulna</option>
+                        <option value="rajshahi">Rajshahi</option>
+                        <option value="barisal">Barisal</option>
+                        <option value="rangpur">Rangpur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="date"><i class="fas fa-calendar-alt"></i> Departure date</label>
+                    <input type="date" id="date" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="passengers"><i class="fas fa-users"></i> Number of passengers</label>
+                    <select id="passengers" class="form-control">
+                        <option value="1">1 people</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                    </select>
+                </div>
+
+                <button class="search-btn" onclick="searchBuses()">
+                    <i class="fas fa-search"></i> Find a bus
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Buses Section -->
+    <section id="buses" class="buses-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">উপলব্ধ বাসসমূহ</h2>
+            <div class="buses-list" id="busesList">
+                <!-- Buses will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes Section -->
+    <section id="routes" class="routes-section">
+        <div class="container">
+            <h2 class="section-title">Popular Routes</h2>
+            <div class="routes-grid">
+                <div class="route-card">
+                    <h3>Dhaka - Chittagong</h3>
+                    <p>Distance: 250 km</p>
+                    <p>Time: 4-6 hours</p>
+                    <p>Rent: 550-800 taka</p>
+                </div>
+                <div class="route-card">
+                    <h3>Dhaka - Sylhet</h3>
+                    <p>Distance: 240 km</p>
+                    <p>Time: 5-6 hours</p>
+                    <p>Rent: 500-750 taka</p>
+                </div>
+                <div class="route-card">
+                    <h3>Dhaka - Khulna</h3>
+                    <p>Distance: 330 km</p>
+                    <p>Time: 7-8 hours</p>
+                    <p>Rent: 600-900 taka</p>
+                </div>
+                <div class="route-card">
+                    <h3>Dhaka - Rajshahi</h3>
+                    <p>Distance: 240 km</p>
+                    <p>Time: 4-5 hours</p>
+                    <p>Rent: 450-700 taka</p>
+                </div>
+                <div class="route-card">
+                    <h3>Dhaka - Barisal</h3>
+                    <p>Distance: 350 km</p>
+                    <p>Time: 5-6 hours</p>
+                    <p>Rent: 500-700 taka</p>
+                </div>
+                <div class="route-card">
+                    <h3>Dhaka - Rangpur</h3>
+                    <p>Distance: 540 km</p>
+                    <p>Time: 7-8 hours</p>
+                    <p>Rent: 700-950 taka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bus Companies Section -->
+    <section id="companies" class="companies-section">
+        <div class="container">
+            <h2 class="section-title">Bus companies</h2>
+            <div class="companies-grid">
+                <div class="company-card">
+                    <img src="./greenline.jpg" alt="Green Line">
+                    <h3>Green Line</h3>
+                    <p>AC and non-AC services</p>
+                </div>
+                <div class="company-card">
+                    <img src="./shahag.jpg" alt="Shahag">
+                    <h3>Shahag</h3>
+                    <p>Luxury bus service</p>
+                </div>
+                <div class="company-card">
+                    <img src="./hanif.jpg" alt="Hanif">
+                    <h3>Hanif</h3>
+                    <p>Nationwide service</p>
+                </div>
+                <div class="company-card">
+                    <img src="./ena.jpg" alt="Ena">
+                    <h3>Ena</h3>
+                    <p>AC bus service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone number</h3>
+                        <p>+880 1771489241</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>support@busticket.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>Motijheel, Dhaka-1000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-bus"></i>SB bus tickets</h3>
+                    <p>The most reliable bus ticket booking platform in Bangladesh.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#booking">Ticket booking</a></li>
+                        <li><a href="#routes">Routes</a></li>
+                        <li><a href="#companies">Bus company</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SB Bus Tickets. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="login-submit-btn">Login</button>
+                <p>No Account? <a href="#" class="register-link">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="ticket.js"></script>
+</body>
+</html>
